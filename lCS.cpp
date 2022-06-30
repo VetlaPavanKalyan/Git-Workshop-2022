@@ -17,11 +17,11 @@ int main()
 }
 int lCS(char* a,char* b,int m,int n)
 {
-    int l[m+1][n+1],t;
+    int l[m+1][n+1],t,i,j,x,y;
     vector <char> v;
-    for(int i=0;i<=m;i++)
+    for(i=0;i<=m;i++)
     {
-        for(int j=0;j<=n;j++)
+        for(j=0;j<=n;j++)
         {
             if(i==0||j==0)
             {
@@ -37,9 +37,33 @@ int lCS(char* a,char* b,int m,int n)
             }
         }
     }
-    
+    i=m;
+    x=m;
+    j=n;
+    y=n;
     cout<<"Longest Common String is : ";
-    for(int i=v.size();i>=0;i++)
+    while(l[i][j]>0)
+    {
+        if(l[i][j]==l[i-1][j])
+        {
+            i--;
+            continue;
+        }
+        else if(l[i][j]==l[i][j-1])
+        {
+            j--;
+            continue;
+        }
+        else if(l[i][j]==l[i-1][j-1]+1)
+        {
+            x--;
+            y--;
+            v.push_back(a[x]);
+            i--;
+            j--;
+        }
+    }
+    for(i=v.size();i>=0;i--)
     {
         cout<<v[i]<<" ";
     }
