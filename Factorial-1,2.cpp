@@ -1,7 +1,7 @@
-//#include<iostream>
+#include<iostream>
 //int fact_rec(int);
 //int fact(int);
-//using namespace std;
+using namespace std;
 //int main()
 //{
 //	int op,n,f;
@@ -49,13 +49,15 @@
 //}
 int main()
 {
-    int n=5,i,j,sum=0;
-    for(i=1;i<=n;i++)
+    int n=5,i,j,f=1,sum;
+    for(i=n;i>0;i--)
     {
-        for(j=1;j<=n;j++)
+        sum=0;
+        for(j=0;j<i;j++)
         {
-            sum=sum+j;
+            sum++;
         }
+        f*=sum;
     }
-    printf("%d",sum);
+    cout<<f<<endl;
 }
